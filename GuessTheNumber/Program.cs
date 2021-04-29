@@ -8,16 +8,19 @@ namespace GuessTheNumber
         {
 
             // Variables
+
             int numberToGuess = new Random().Next(1, 51);
 
             // Methods
+
             void askUser()
             {
                 // Local variables
+
                 string usersGuess;
                 int convertedGuess;
 
-                Console.Write("Your guess: ");
+                Console.Write("\nYour guess: ");
 
                 usersGuess = Console.ReadLine();
 
@@ -40,9 +43,14 @@ namespace GuessTheNumber
 
                     } else
                     {
-                        Console.WriteLine("You guessed the number!");
+                        Console.BackgroundColor = ConsoleColor.Green;
+                        Console.ForegroundColor = ConsoleColor.Black;
 
-                        Console.WriteLine($"The number was {numberToGuess}");
+                        Console.WriteLine("\nYou guessed the number!");
+
+                        Console.ResetColor();
+
+                        Console.WriteLine($"The number to guess: {numberToGuess}");
 
                     }
 
