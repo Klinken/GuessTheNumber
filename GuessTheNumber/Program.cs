@@ -10,24 +10,67 @@ namespace GuessTheNumber
             // Variables
             int numberToGuess = new Random().Next(1, 51);
 
-
             // Methods
-            string usersGuess()
+            void askUser()
             {
+                // Local variables
+                string usersGuess;
+                int convertedGuess;
+
                 Console.Write("Your guess: ");
 
+                usersGuess = Console.ReadLine();
 
+                try
+                {
+                    convertedGuess = Convert.ToInt16(usersGuess);
 
-                return "Correct a mundo";
+                    if (convertedGuess < numberToGuess)
+                    {
+                        Console.WriteLine("Your number is too low, try again...");
+
+                        askUser();
+
+                    }
+                    else if (convertedGuess > numberToGuess)
+                    {
+                        Console.WriteLine("Your number is too high, try again...");
+
+                        askUser();
+
+                    } else
+                    {
+                        Console.WriteLine("You guessed the number!");
+
+                        Console.WriteLine($"The number was {numberToGuess}");
+
+                    }
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Well that's not a number, try again..");
+
+                    askUser();
+
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Maybe a bit out of range, try again...");
+
+                    askUser();
+
+                }
+
             }
              
-
+            
             // Execution
 
             Console.WriteLine("Welcome to guess the number!");
-            Console.WriteLine("The object of the game; guess the secret number, you will be told, if your to low or high.");
+            Console.WriteLine("The object of the game; guess the secret number between 1 and 50, you will be told, if your too low or high.");
 
-
+            askUser();
 
 
         }
