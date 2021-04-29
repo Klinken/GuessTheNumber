@@ -18,6 +18,7 @@ namespace GuessTheNumber
                 // Local variables
 
                 string usersGuess;
+
                 int convertedGuess;
 
                 Console.Write("\nYour guess: ");
